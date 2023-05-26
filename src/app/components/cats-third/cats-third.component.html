@@ -1,0 +1,27 @@
+<ng-container *ngFor="let cat of cats; let i = index">
+    <ng-container [ngSwitch]="cat.id">
+        <ng-container *ngSwitchCase="0" [ngTemplateOutlet]="firstCat" [ngTemplateOutletContext]="{cat: cat}"></ng-container>
+        <ng-container *ngSwitchCase="1" [ngTemplateOutlet]="secondCat" [ngTemplateOutletContext]="{$implicit: cat}" ></ng-container>
+
+        
+        <ng-container *ngSwitchCase="2" [ngTemplateOutlet]="unique" ></ng-container>
+        <ng-container *ngSwitchCase="3" [ngTemplateOutlet]="uniqueSecond" ></ng-container>
+        
+    </ng-container>
+</ng-container>
+
+<ng-template #firstCat let-cat="cat">
+    <h1>{{cat.name}}</h1>
+</ng-template>
+
+<ng-template #secondCat let-data>
+    <h2 style="color: red">{{data.name}}</h2>
+</ng-template>
+
+<ng-template #unique >
+    <ng-content select="[unique]"></ng-content>
+</ng-template>
+
+<ng-template #uniqueSecond >
+    <ng-content select="[uniqueSecond]"></ng-content>
+</ng-template>

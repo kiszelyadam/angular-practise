@@ -1,0 +1,16 @@
+<ng-container *ngFor="let dog of ['husky', 'rotweiler', 'doberman', 'dalmata', 'golder retriever']">
+    <span *structural="dog;dogLength:dog.length;firstDogCharacter:dog[0]">
+        {{dog}}
+    </span>
+    <br>
+    <br>
+
+</ng-container>
+
+<ng-container *ngFor="let dog of ['husky', 'rotweiler', 'doberman', 'dalmata', 'golder retriever']" >
+    <span attribute>
+        {{dog}}
+    </span>
+    <br>
+    <br>
+</ng-container>

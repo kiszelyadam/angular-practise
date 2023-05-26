@@ -1,0 +1,30 @@
+<!-- ngFor  -->
+<p #cats>cats-first works!</p>
+<div style="display: flex; flex-direction: column;">
+    <ng-container *ngFor="let cat of catsArray let i = index; trackBy:trackBy">
+        <span>
+            {{i + 1}} {{cat.name}}
+        </span>
+        <span>
+            {{cat.color}}
+        </span>
+        <span>
+            {{cat.weight}}
+        </span>
+    </ng-container>
+
+
+</div>
+<!--ngSwitch-->
+
+
+<ng-container *ngFor="let cat of catsArray">
+    <ng-container [ngSwitch]="cat.id">
+        <span *ngSwitchCase="0">
+            {{cat.name}} {{'első'}}
+        </span>
+        <span *ngSwitchDefault="">
+            {{cat.name}}
+        </span>
+    </ng-container>
+</ng-container>
